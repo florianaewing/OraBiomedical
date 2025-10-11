@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sequenced Animations</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      margin: 10px;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+
+  <script>
+    const boxes = document.querySelectorAll('.box');
+    
+    boxes.forEach((box, index) => {
+      box.animate([
+        { opacity: 0, transform: 'translateY(50px)' },
+        { opacity: 1, transform: 'translateY(0)' }
+      ], {
+        duration: 1000,
+        easing: 'ease-out',
+        delay: index * 300,  // Stagger the animations by 300ms
+        fill: 'forwards'
+      });
+    });
+  </script>
+</body>
+</html>

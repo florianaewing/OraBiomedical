@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Path Animation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 200vh; /* Make the page tall enough to scroll */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    svg {
+      width: 80%;  /* Make the SVG scale relative to the screen width */
+      height: auto;
+    }
+
+    path {
+      fill: none;
+      stroke: #3498db; /* Set stroke color */
+      stroke-width: 4;
+      stroke-dasharray: 1000; /* Length of the path */
+      stroke-dashoffset: 1000; /* Initially hide the path */
+      transition: stroke-dashoffset 3s ease;
+    }
+
+    .draw {
+      stroke-dashoffset: 0; /* Reveal the path */
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 400 400">
+    <path d="M50 150 C150 50, 250 50, 350 150 S550 250, 450 350" />
+  </svg>
+
+  <script>
+    const path = document.querySelector('path');
+
+    // Listen for scroll events
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+
+      // Adjust the stroke-dashoffset based on scroll position
+      const offset = Math.min(scrollY / 5, 1000); // Control the speed of the drawing
+      path.style.strokeDashoffset = 1000 - offset; // Decrease stroke-dashoffset to reveal the path
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unified Scroll Snap Module</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory; /* Global scroll snapping */
+    }
+
+    /* All major vertical sections now snap */
+    .section, .snap-child {
+      scroll-snap-align: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-bottom: 2px solid #ccc;
+    }
+
+    /* Specific styling for .section (Intro/Footer) */
+    .section {
+      background: #eee;
+    }
+
+    /* Snap wrapper container (not scrollable, just a logical group) */
+    #snap-wrapper {
+        scroll-behavior: smooth;
+      /* No scroll properties needed */
+    }
+
+    /* Snap children inside wrapper */
+    .snap-child {
+      background: #f0f0ff;
+    }
+
+    /* Visual variety */
+    .snap-child:nth-child(even) {
+      background-color: #ffe0e0;
+    }
+
+    .snap-child:nth-child(odd) {
+      background-color: #e0ffe0;
+    }
+
+    /* Optional scroll-to-top button */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 16px;
+      font-size: 1rem;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Snapping section -->
+  <div class="section">👋 Intro Section (Snaps to Center)</div>
+
+  <!-- Snap Zone -->
+  <div id="snap-wrapper">
+
+    <div class="snap-child">📸 Snap Section 1 — Image or Text</div>
+
+    <div class="snap-child">
+      <img src="https://placekitten.com/600/300" alt="Kitten" />
+    </div>
+
+    <div class="snap-child">
+      <video width="320" height="240" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="snap-child">🎬 Snap Section 4 — Anything You Like</div>
+    
+  </div>
+
+  <!-- Final snapping section -->
+  <div class="section">🚀 Footer Section (Snaps to Center)</div>
+
+  <!-- Optional scroll to top button -->
+  <button class="scroll-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+    ↑ Top
+  </button>
+
+</body>
+</html>

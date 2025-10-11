@@ -1,0 +1,24 @@
+Florian Ewing
+Freelance Web Dev
+Ora Biomedical
+8.22.2025
+
+	Site Dev Meeting #2: Ben Blue
+
+Topics:
+
+1. Description of site, demo of unstyled elements, focus on simpolicity of current layout. Which elements stay, which elements go? Decisions on wording for text.
+
+What Ora does at a very high level, keep million molecule challenge, home/science, team, contact 
+
+2. Style choices, winning elements from example websites. Animated looping backgrounds and color Scheme from Permanance Bio, Slideshow from Gordian, custom Web animations from Talus, and the ever present scrolling pop-in on text elements. 
+
+3. Ideas: Intro Animation(logo fade-in and positioning), AI animation loop(idk if this is actually possible) 
+
+4. NDA 
+
+5. Internship requirements
+
+6. Content Delivery Network Access (Woo Commerce backend payment)
+
+7. Last but not least, Headshots

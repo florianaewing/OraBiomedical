@@ -1,0 +1,229 @@
+html, body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  /*background-image: url(images/WEBSITE_sansheader.PNG);*/
+  background-color: black;
+  scroll-snap-type: y mandatory;
+  /* scroll-behavior: smooth; */
+}
+
+header {
+	position: sticky;
+	top: 0;
+	padding: 10px 30px 10px 30px;
+	height: 120px;
+	float: none;
+}
+
+div {
+	width: 1000px;
+	margin: 10px auto 10px auto;
+    color: white;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+div#stage {
+	width: 100vw;
+	height: 100vh;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: aquamarine;
+}
+
+div#right {
+	width: 480px;
+	height: 280px;
+	padding: 10px 10px 10px 10px;
+	float: right;
+}
+
+div#left {
+	width: 500px;
+	height: 300px;
+	display: inline-block;
+	text-align: center;	
+}
+
+.background-animation {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -3;
+  pointer-events: none;
+  opacity: 1; /* optional: adjust visibility */
+}
+
+main {
+	max-width: 100%;
+	height: auto;
+	float: none;
+	margin: 10px 10px 10px 10px;
+	text-align: center;
+}
+
+nav {
+	height: 100px; 
+	line-height: 30px;
+    width: 550px;
+	float: right;
+}
+
+#navHome a {
+	opacity: 0;
+}
+
+nav li {
+	font-family: 'Titillium Web', sans-serif;
+	list-style-type: none;
+	text-align: center;
+	float: left;
+	width: 80px;
+}
+
+nav a {
+	text-decoration: none;
+	color: white;
+}
+
+nav a:hover{
+	color: purple;
+}
+
+.box {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      margin: 10px;
+      opacity: 0;
+}
+
+h1,h2,h3 {
+	text-align: center;
+}
+
+#OraLogo_Header {
+    position: absolute;
+    display: block;
+    float: left;
+}
+
+#OraLogo {
+    position: relative;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+	line-height: 100px;
+}
+
+a {color: blue;
+	text-decoration: none;
+
+}
+
+footer {
+	position: sticky;
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto 0 auto;
+	height: 50px;
+	line-height: 50px;
+}
+
+footer li {
+	font-family: 'Titillium Web', sans-serif;
+	float: left;
+	color: white;
+	list-style-type:none; 
+	width: 3%;
+}
+
+footer p {
+	font-family: 'Titillium Web', sans-serif;
+	float: right;
+	color: white;
+	font-size: .8em;
+}
+
+footer a {
+	text-decoration:none;
+}
+
+.social-icon svg {
+  color: #777; /* default color */
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover svg {
+  color: #0d6efd; /* Facebook blue or your brand accent */
+}
+
+p {
+	text-align: left;
+}
+
+/* Main container for the content */
+.wave-container {
+  position: relative;
+  display: inline-block; /* Container size will automatically fit its content */
+  width: 100%; /* Responsive width */
+  border-radius: 25px;
+  overflow: hidden; /* Ensure waves don't overflow the container */
+}
+
+/* Canvas for wave animation */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Canvas stays behind content */
+}
+
+/* Content sits on top of the canvas */
+.wave-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+}
+
+.wave-content h1, .wave-content h2, .wave-content p {
+  margin: 0;
+}
+
+.section {
+	scroll-snap-align: center;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+}
+
+@keyframes fade_in {
+  0%   {opacity: 0.0;}
+  100% {opacity: 1.0;}
+}
+
+@keyframes fade_out {
+  0%   {opacity: 1.0;}
+  100% {opacity: 0.0;}
+}
+
+.fade-in {
+  animation: fade_in 1s ease-out forwards;
+}
+
+.fade-out {
+  animation: fade_out 0.5s ease-in forwards;
+}
+

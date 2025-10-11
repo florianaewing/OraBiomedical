@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive SVG: Spelling ORA</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    svg {
+      width: 300px;
+      height: 150px;
+      cursor: pointer;
+    }
+
+    text {
+      font-family: "Arial", sans-serif;
+      font-size: 100px;
+      fill: #3498db;
+      stroke: #2c3e50;
+      stroke-width: 2px;
+      opacity: 0; /* Start with hidden text */
+      transition: opacity 1s ease;
+    }
+
+    text.draw {
+      opacity: 1; /* Make the text visible when the class 'draw' is added */
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- SVG with text elements spelling "ORA" -->
+  <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+    <text x="20" y="100" id="O">O</text>
+    <text x="100" y="100" id="R">R</text>
+    <text x="200" y="100" id="A">A</text>
+  </svg>
+
+  <script>
+    const letters = document.querySelectorAll('text');
+
+    // Function to trigger the text animation
+    function triggerAnimation() {
+      let delay = 0;
+      letters.forEach((letter, index) => {
+        setTimeout(() => {
+          letter.classList.add('draw');
+        }, delay);
+        delay += 1000; // Delay each letter by 1 second
+      });
+    }
+
+    const svg = document.querySelector('svg');
+
+    // Trigger animation on hover over the SVG
+    svg.addEventListener('mouseenter', triggerAnimation);
+
+    // Reset the animation when mouse leaves
+    svg.addEventListener('mouseleave', () => {
+      letters.forEach(letter => letter.classList.remove('draw'));
+    });
+  </script>
+  
+</body>
+</html>
