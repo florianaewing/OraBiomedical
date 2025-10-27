@@ -1,0 +1,60 @@
+ffmpeg -f concat -safe 0 -i "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\filelist.txt" -vf "fps=30,scale=1080:1080:force_original_aspect_ratio=decrease,pad=1080:1080:(ow-iw)/2:(oh-ih)/2:color=black" -loop 0 -c:v libwebp -quality 95 -preset default -an "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\cell_background.webp"
+
+Implementation in html:
+        <img src="images/cell_frames/cell_background.webp" alt="Background animation" class="background-animation">
+
+This FFmpeg command takes a sequence of video files, combines them into one continuous
+animation, and exports that animation as a high-quality looping WebP file suitable
+for use as a web background.
+
+The process begins with the -f concat -safe 0 option, which instructs FFmpeg to use
+its concatenation demuxer. This allows multiple clips to be stitched together
+seamlessly in the exact order specified in a text file. The input specified by
+-i "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\filelist.txt"
+points FFmpeg to a list of videos, each listed with the file keyword in a plain
+text file. This ensures that FFmpeg reads and merges them into a single continuous
+stream without requiring intermediate rendering or re-encoding between segments.
+
+After the input is defined, the command applies a video filter chain via the -vf
+flag. The filter string
+"fps=30,scale=1080:1080:force_original_aspect_ratio=decrease,pad=1080:1080:(ow-iw)/2:(oh-ih)/2:color=black"
+performs several transformations.
+
+First, fps=30 standardizes the frame rate to 30 frames per second, ensuring smooth
+and consistent playback even if the source clips have varying frame rates. Next,
+scale=1080:1080:force_original_aspect_ratio=decrease scales each frame down so
+that it fits entirely within a 1080×1080 square while maintaining its original
+aspect ratio. This prevents distortion or stretching.
+
+Because some videos may not be perfectly square after scaling, the pad filter
+expands the frame to exactly 1080×1080 pixels by centering the scaled image
+((ow-iw)/2:(oh-ih)/2) and filling the remaining space with a solid black
+background (color=black). This guarantees a consistent 1:1 aspect ratio for all
+frames, ideal for uniform presentation on a web page.
+
+The next option, -loop 0, tells FFmpeg to make the resulting WebP animation loop
+infinitely, which is crucial for background animations that should repeat seamlessly.
+The -c:v libwebp flag specifies the video codec to use — the WebP encoder — so
+the output is generated as an animated WebP file rather than a video format like MP4.
+The encoding parameters -quality 95 -preset default instruct FFmpeg to prioritize
+visual quality over compression efficiency, using near-maximum image fidelity while
+maintaining a reasonable encoding speed. The -an flag disables audio processing
+entirely since the WebP format does not support audio tracks.
+
+Finally, the last argument,
+"C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\cell_background.webp",
+defines the full path and filename of the output file. The result of running this
+command is a high-resolution, square, 30 fps, infinitely looping animated WebP file
+composed of the four input video clips played sequentially in the order listed in
+filelist.txt. This output is optimized for use as a visually rich, professional-
+grade web background element that will render smoothly across modern browsers while
+maintaining consistent dimensions and playback behavior.
+
+For video format in .mp4 at half speed:
+ffmpeg -f concat -safe 0 -i "C:/Users/flori/Documents/GitHub/OraBiomedical/images/cell_frames/filelist.txt" -vf "setpts=2.0*PTS" -c:v libx264 -pix_fmt yuv420p -an -y "C:/Users/flori/Documents/GitHub/OraBiomedical/images/cell_frames/output_half_speed.mp4"
+
+For webM format with greater compression, & significantly reduced file size:
+ffmpeg -f concat -safe 0 -i "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\filelist.txt" -vf "fps=30,scale=1080:-1:force_original_aspect_ratio=decrease" -c:v libvpx-vp9 -b:v 0 -crf 35 -an -row-mt 1 -tile-columns 2 "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\cell_background.webm"
+
+For a compressed, web-compatible webp(Reduced size & frame rate):
+ffmpeg -f concat -safe 0 -i "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\filelist.txt" -vf "fps=24,scale=1080:1080:force_original_aspect_ratio=decrease,pad=1080:1080:(ow-iw)/2:(oh-ih)/2:color=black" -loop 0 -c:v libwebp -quality 50 -preset picture -an "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\cell_background_compressed.webp"

@@ -1,19 +1,24 @@
 html, body {
-  height: auto;
-  margin: 0;
-  padding: 0;
-  /*background-image: url(images/WEBSITE_sansheader.PNG);*/
-  background-color: black;
-  scroll-snap-type: y mandatory;
-  /* scroll-behavior: smooth; */
+	height: auto;
+	margin: 0;
+	padding: 0;
+	/*background-image: url(images/WEBSITE_sansheader.PNG);*/
+	background-color: white;
+	background: radial-gradient(circle, white, grey);
+	background-attachment: fixed;
+
+
+	scroll-snap-type: y mandatory;
+	/* scroll-behavior: smooth; */
 }
 
 header {
 	position: sticky;
 	top: 0;
-	padding: 10px 30px 10px 30px;
+	padding: 10px 10px 10px 30px;
 	height: 120px;
 	float: none;
+	z-index: 1;
 }
 
 div {
@@ -21,23 +26,16 @@ div {
 	margin: 10px auto 10px auto;
     color: white;
 	font-family: 'Titillium Web', sans-serif;
-	font-size: 16px;
+	font-size: 1.05em;
 	line-height: 1.5;
 }
 
-div#stage {
-	width: 100vw;
-	height: 100vh;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-color: aquamarine;
-}
-
 div#right {
-	width: 480px;
+	width: 460px;
 	height: 280px;
 	padding: 10px 10px 10px 10px;
 	float: right;
+	margin: 0 20px 0 0;
 }
 
 div#left {
@@ -48,16 +46,29 @@ div#left {
 }
 
 .background-animation {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  width: 500px;
-  height: 500px;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: -3;
-  pointer-events: none;
-  opacity: 1; /* optional: adjust visibility */
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	width: 700px;
+	height: 700px;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	pointer-events: none;
+	opacity: 0.7; 
+
+	-webkit-mask-image: 
+    linear-gradient(to right, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+    linear-gradient(to bottom, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+	linear-gradient(to left, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+    linear-gradient(to top, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%);
+  	-webkit-mask-composite: destination-in;
+ 	 mask-composite: intersect;
+
+  	mask-image: 
+    linear-gradient(to right, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+    linear-gradient(to bottom, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+	linear-gradient(to left, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+    linear-gradient(to top, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%);
 }
 
 main {
@@ -66,6 +77,8 @@ main {
 	float: none;
 	margin: 10px 10px 10px 10px;
 	text-align: center;
+	font-size: 1.1em;
+	color: black
 }
 
 nav {
@@ -89,7 +102,8 @@ nav li {
 
 nav a {
 	text-decoration: none;
-	color: white;
+	color: darkblue;
+	font-weight: 500;
 }
 
 nav a:hover{
@@ -122,7 +136,7 @@ h1,h2,h3 {
 	line-height: 100px;
 }
 
-a {color: blue;
+a {color: rgb(246, 239, 29);
 	text-decoration: none;
 
 }
@@ -132,14 +146,13 @@ footer {
 	bottom: 0;
 	width: 100%;
 	margin: 0 auto 0 auto;
-	height: 50px;
-	line-height: 50px;
-}
+	height: 120px;
+	line-height: 190px;}
 
 footer li {
 	font-family: 'Titillium Web', sans-serif;
 	float: left;
-	color: white;
+	color: black;
 	list-style-type:none; 
 	width: 3%;
 }
@@ -147,16 +160,17 @@ footer li {
 footer p {
 	font-family: 'Titillium Web', sans-serif;
 	float: right;
-	color: white;
-	font-size: .8em;
+	color: black;
+	font-size: .9em;
 }
 
 footer a {
 	text-decoration:none;
+	color: darkblue
 }
 
 .social-icon svg {
-  color: #777; /* default color */
+  color: #444444; /* default color */
   transition: color 0.3s ease;
 }
 
@@ -173,8 +187,28 @@ p {
   position: relative;
   display: inline-block; /* Container size will automatically fit its content */
   width: 100%; /* Responsive width */
-  border-radius: 25px;
+  border-radius: 35px;
   overflow: hidden; /* Ensure waves don't overflow the container */
+  background-color: rgb(70, 70, 70);
+  opacity: 1;
+
+  -webkit-mask-image: 
+    linear-gradient(to right, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+    linear-gradient(to bottom, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+	linear-gradient(to left, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+    linear-gradient(to top, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+
+  mask-image: 
+    linear-gradient(to right, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+    linear-gradient(to bottom, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+	linear-gradient(to left, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%),
+    linear-gradient(to top, transparent 0px, black 25px, black calc(100% - 35px), transparent 100%);
+}
+
+.wave-container img, iframe, video {
+  padding: 20px 0 20px 0;
 }
 
 /* Canvas for wave animation */
@@ -197,16 +231,27 @@ canvas {
 }
 
 .wave-content h1, .wave-content h2, .wave-content p {
-  margin: 0;
+  margin: 0 60px 0 30px;
+
 }
 
 .section {
 	scroll-snap-align: center;
-	height: 100vh;
+	height: 100vh; /* Adjust to match nav height */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	opacity: 0;
+}
+
+#intro {
+	scroll-snap-align: center;
+	height: 60vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	margin-top: 180px;
 }
 
 @keyframes fade_in {
@@ -220,7 +265,7 @@ canvas {
 }
 
 .fade-in {
-  animation: fade_in 1s ease-out forwards;
+  animation: fade_in 0.5s ease-out forwards;
 }
 
 .fade-out {

@@ -51,16 +51,31 @@ containers.forEach(container => {
 
   const ctx = canvas.getContext('2d');
 
-  // Set canvas size to container size
+  const cols = 160;
+  const rows = 80;
+
+  const points = new Array(cols * rows);
+
+  // Precompute normalized positions once
+  for (let x = 0; x < cols; x++) {
+    for (let y = 0; y < rows; y++) {
+      const idx = y + x * rows;
+      points[idx] = {
+        x,
+        y,
+        normX: (x / cols) * Math.PI * 4,
+        normY: (y / rows) * Math.PI * 4,
+      };
+    }
+  }
+
   function resizeCanvas() {
     canvas.width = container.offsetWidth;
     canvas.height = container.offsetHeight;
   }
+
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
-
-  const cols = 160;
-  const rows = 80;
 
   let time = 0;
   let animationId = null;
@@ -72,33 +87,28 @@ containers.forEach(container => {
 
     const spacingX = w / cols;
     const spacingY = h / rows;
+    const tMorph = (Math.sin(time * 0.25) + 1) / 2;
 
-    for (let x = 0; x < cols; x++) {
-      for (let y = 0; y < rows; y++) {
-        const normX = (x / cols) * Math.PI * 4;
-        const normY = (y / rows) * Math.PI * 4;
+    for (let i = 0; i < points.length; i++) {
+      const p = points[i];
 
-        const z1 = Math.sin(normX + time) * Math.cos(normY + time);
-        const z2 = Math.sin(normY + time) * Math.cos(normX + time);
-        const tMorph = (Math.sin(time * 0.25) + 1) / 2;
-        const z = lerp(z1, z2, tMorph);
+      const z1 = Math.sin(p.normX + time) * Math.cos(p.normY + time);
+      const z2 = Math.sin(p.normY + time) * Math.cos(p.normX + time);
+      const z = lerp(z1, z2, tMorph);
 
-        const opacity = 1 - ((z + 1) / 2);
-        ctx.fillStyle = `rgba(120, 120, 120, ${opacity * 0.45})`;
+      const opacity = 1 - ((z + 1) / 2);
+      ctx.fillStyle = `rgba(30, 144, 255, ${opacity * 0.65})`;
 
-        const px = x * spacingX;
-        const py = y * spacingY;
-        ctx.beginPath();
-        ctx.arc(px, py, 2, 0, Math.PI * 2);
-        ctx.fill();
-      }
+      ctx.beginPath();
+      ctx.arc(p.x * spacingX, p.y * spacingY, 2, 0, Math.PI * 2);
+      ctx.fill();
     }
 
-    time += 0.04;
+    time += 0.03;
     animationId = requestAnimationFrame(draw);
   }
 
-  // Intersection Observer to pause/resume animation
+  // Intersection Observer for pause/resume
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -115,13 +125,14 @@ containers.forEach(container => {
   observer.observe(container);
 });
 
+
 // Fade in/out sections based on scroll position
 document.addEventListener('DOMContentLoaded', function () {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const el = entry.target;
 
-      if (entry.intersectionRatio >= 0.80) {
+      if (entry.intersectionRatio >= 0.60) {
         // 60% or more in view — fade in
         el.classList.remove('fade-out');
         el.classList.add('fade-in');
