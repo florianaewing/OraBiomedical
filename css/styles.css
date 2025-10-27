@@ -170,12 +170,12 @@ footer a {
 }
 
 .social-icon svg {
-  color: #444444; /* default color */
+  color: #444444;
   transition: color 0.3s ease;
 }
 
 .social-icon:hover svg {
-  color: #0d6efd; /* Facebook blue or your brand accent */
+  color: #0d6efd; 
 }
 
 p {
@@ -185,7 +185,7 @@ p {
 /* Main container for the content */
 .wave-container {
   position: relative;
-  display: inline-block; /* Container size will automatically fit its content */
+  display: inline-block; 
   width: 100%; /* Responsive width */
   border-radius: 35px;
   overflow: hidden; /* Ensure waves don't overflow the container */
