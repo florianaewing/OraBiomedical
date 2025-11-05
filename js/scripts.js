@@ -1,7 +1,7 @@
 //Florian Ewing
 //Ora Biomedical, Inc. 
 //Ora Biomedical Website Scripts
-//9.17.2025
+//11.2.2025
 
 
 // Navigation Link Animations
@@ -51,8 +51,8 @@ containers.forEach(container => {
 
   const ctx = canvas.getContext('2d');
 
-  const cols = 160;
-  const rows = 80;
+  const cols = 180;
+  const rows = 120;
 
   const points = new Array(cols * rows);
 
@@ -150,3 +150,58 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(el);
   });
 });
+
+//Personnel Carousel Movement
+const track = document.querySelector('.carousel__track');
+const items = Array.from(track.children);
+let currentIndex = 0;
+
+function updateCarousel() {
+  const total = items.length;
+  const spacing = 250; // horizontal spacing between images
+  const depth = 150;   // how far back non-center items appear
+  const scaleStep = 0.15;
+
+  items.forEach((item, i) => {
+    const offset = (i - currentIndex + total) % total;
+    const caption = item.querySelector('.caption');
+
+    let x = 0, z = 0, scale = 1, opacity = 1;
+
+    if (offset === 0) {
+      x = 0; z = 0; scale = 1; opacity = 1;
+      caption.style.opacity = 1;
+    } else {
+      caption.style.opacity = 0;
+      const dir = offset <= total / 2 ? 1 : -1;
+      const dist = Math.min(offset, total - offset);
+      x = dir * spacing * dist;
+      z = -depth * dist;
+      scale = 1 - scaleStep * dist;
+      opacity = 1 - 0.3 * dist;
+    }
+
+    // ✅ apply 3D first, center last for proper spacing
+    item.style.transform = `
+      translateX(${x}px)
+      translateZ(${z}px)
+      scale(${scale})
+      translate(-50%, -50%)
+    `;
+    item.style.opacity = opacity;
+    item.style.zIndex = 1000 - Math.abs(offset);
+  });
+}
+
+// Controls
+document.getElementById("next").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % items.length;
+  updateCarousel();
+});
+document.getElementById("prev").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  updateCarousel();
+});
+
+// Initialize
+updateCarousel();

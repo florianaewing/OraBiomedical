@@ -1,0 +1,22 @@
+Florian Ewing
+Ora Biomedical: Web Design Notes #1
+Custom Web Animations
+9.5.2025
+
+1. Introductory Approach
+
+	i. Web Animations With Javascript - Basic animations can be created with JS 			using Web Animations API, or WWAPI. Using keyframes, a variety of animated			parameters like duration and position can be controlled in order to define 			some animated element. 
+
+	ii. Chaining Animations- Multiple animations can be chained together, or run in 		parallel in order to create more complex visuals. An onfinish event can be 			defined in order to design any number of chained or consecutive animations. 
+	
+	iii. Interactive Controls - Animations with WAAPI can be paused, resumed, 			reversed, or cancelled on demand. 
+
+	vi. Additional Information - Scroll triggered animations can be created using 			the Intersection Observer API, or the ScrollMagic Library. Consider also the			implemenation of 3D transformations. 
+
+	v. Performance - Avoid using box-shadow, border-radius, and filter on large or 	complex elements; they can slow down performance, especially on lower-end 	devices.
+
+	iv. Libraries & Frameworks - GSAP (GreenSock Animation Platform): One of the 	most powerful animation libraries that works across browsers and supports 		animations like scrolling, tweening, and more.
+	Three.js: For 3D animations on the web.
+	Anime.js: A lightweight library that makes it easier to handle complex 		animations and sequences.
+
+	
