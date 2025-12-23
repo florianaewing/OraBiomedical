@@ -10,6 +10,21 @@
 </head>
 <body>
 
+    <div id="preloader">
+        <!-- <div id="loading-text">
+            <span class="letters">Loading</span
+            ><span class="dot" id="dot1">.</span
+            ><span class="dot" id="dot2">.</span
+            ><span class="dot" id="dot3">.</span>
+        </div> -->
+        <img src="images/loading.webp" alt="Loading..." id="loading-icon">
+    </div>
+
+    <video id="background-video" autoplay muted loop>
+        <source src="css/background_images/smoothest_background_sixth_speed.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <header>
         <img id="OraLogo_Header" src="images/OraBiomedical.png" alt="Ora Biomedical">
         <nav>
@@ -18,25 +33,25 @@
                 <li><a href=" "> </a></li>
                 <li><a href=" "> </a></li>
                 <li><a href=" "> </a></li>
-                <li><a href="#company">About Our Company</a></li>
+                <li><a href="#company">About</a></li>
                 <li><a href="#science">Science</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="MMC.html">Million Molecule Challenge</a></li>
+                <!-- <li><a href="MMC.html">Million Molecule Challenge</a></li> -->
             </ul>
         </nav>
     </header>
 
     <div class="section" id="intro" style="font-weight:bolder">
-        <img src="images/cell_frames/cell_background_compressed.webp" alt="Background animation" class="background-animation">
+        <img src="images/cell_frames/cell_background_compressed.webp" 
+        alt="Background animation" 
+        class="background-animation">
         <main>
-            <h1>Reprogramming Aging with AI-Driven Discovery</h1>
-                <h3>Ora Biomedical is accelerating the search for longevity and
+            <h1 style= "font-size: 3.5em;">Reprogramming Aging with AI-Driven Discovery</h1>
+                <h3 style= "font-size: 2em;">Ora Biomedical is accelerating the search for longevity and
                     resilience enhancing therapies using high-throughput live animal
                     screening and machine learning - bridging the fundamental Science
                     with translational breakthroughs.</h3>
-
-            <a href="news.html">Ora Biomedical - In the News</a>
         </main>
     </div>
         
@@ -135,7 +150,7 @@
         </div>
     </div>
 
-    <div class="section" id="science">
+    <div class="section">
         <div class="wave-container">
             <canvas class="wave-canvas"></canvas>
                 <div class="wave-content">
@@ -178,17 +193,18 @@
         </div>
     </div>
 
-    <div class="section" id="contact">
+    <div class="section">
     <div class="wave-container">
         <canvas class="wave-canvas"></canvas>
         <div class="wave-content">
-            <h1>Meet Our Team</h1>
-            <h3>Founders and Science Advisory Board</h3>
+            <h1>Founders and Science Advisory Board</h1>
+            <h3></h3>
 
             <div class="carousel">
                 <div class="carousel__track">
                     <div class="carousel__item">
-                        <img src="images/Team1.png" alt="Team1">
+                        <img src="images/Team1.png" alt="Ben Blue" 
+                        style="background: linear-gradient(to right, rgb(173, 114, 229) 50%, rgb(99, 203, 255) 100%);">
                         <div class="popup">
                             <p>Dr. Benjamin Blue is the Chief Executive Officer of 
                                 Ora Biomedical, where he leads the company’s mission 
@@ -216,7 +232,9 @@
                     </div>
 
                     <div class="carousel__item">
-                        <img src="images/Team2.png" alt="Team2" style="background-color: white;">
+                        <img src="images/Team2.png" alt="Matt Kaeberlein"                         
+                        style="background: linear-gradient(to right, rgb(173, 114, 229) 50%, rgb(99, 203, 255) 100%);">
+
                         <div class="popup">
                             <p>Dr. Matt Kaeberlein is Chief Science Officer of Optispan 
                                 Geroscience and a Professor of Laboratory Medicine and 
@@ -254,85 +272,89 @@
                     </div>
 
                     <div class="carousel__item">
-                        <img src="images/Team3.png" alt="Team3" style="background-color: white;">
+                        <img src="images/Team4.png" alt="Jason Pitt" 
+                        style="background: linear-gradient(to right, rgb(247, 223, 4) 50%, rgb(99, 203, 255) 100%);">
+
                         <div class="popup">
-                            <h3>Image 3</h3>
-                            <p>Integer quis erat et orci convallis sagittis non nec diam.</p>
+                            <h3></h3>
+                            <p>Dr. Pitt is a research scientist at the University of 
+                                Washington and the inventor of the WormBot robotics system. 
+                                He has received grants from the National Institute on Aging, 
+                                the National Cancer Institute, and the National Aeronautics 
+                                and Space Administration. Dr. Pitt’s research publications 
+                                have been featured in journals ranging from Science to The 
+                                Journal of the American Chemical Society. He is a software 
+                                and hardware engineer responsible for multiple open source 
+                                and commercial releases. Dr. Pitt is passionate about 
+                                finding answers to fundamental questions in Biology such 
+                                as the origin of life and the molecular basis for organismal 
+                                aging. His most recent work is focused using the WormBot to 
+                                study the effects of low oxygen on aging in C. elegans. <br><br>
+                                Dr. Pitt received a B.S. in Molecular and Cellular Biology/Biochemistry 
+                                from Western Washington University in 1997. He then received 
+                                his PhD in Molecular and Cellular Biology (MCB) from the 
+                                University of Washington in 2009.</p>
                         </div>
-                        <div class="caption">A serene forest path in morning mist</div>
+                        <div class="caption">Jason Pitt, Ph.D. Co-Founder <br>WormBot Inventor</div>
                     </div>
 
                     <div class="carousel__item">
-                        <img src="images/Team4.png" alt="" style="background-color: white;">
+                        <img src="images/Team5.png" alt="Brian Kennedy" 
+                        style="background: linear-gradient(to right, rgb(173, 114, 229) 50%, rgb(99, 203, 255) 100%);">
                         <div class="popup">
-                            <h3>Image 4</h3>
-                            <p>Phasellus venenatis, nisi non pretium congue, elit ligula imperdiet justo.</p>
+                            <h3></h3>
+                            <p>Dr. Brian Kennedy is internationally recognized for his research 
+                            in the basic biology of aging and as a visionary committed to translating 
+                            research discoveries into new ways of detecting, delaying, 
+                            preventing, and treating human aging and associated diseases. 
+                            He is a Distinguished Professor in Biochemistry and Physiology 
+                            at the Yong Loo Lin School of Medicine at National University 
+                            Singapore and serves as Director of (1) the Centre for Healthy 
+                            Longevity at the National University Health System, (2) the Healthy 
+                            Longevity Translational Research Programme and (3) the Asian Centre 
+                            for Reproductive Longevity and Equality at NUS Medicine. Collectively, 
+                            NUS aging research seeks to demonstrate that longevity interventions 
+                            can be successfully employed in humans to extend healthspan, the 
+                            disease-free and highly functional period of life. <br><br>From 2010 to 2016, 
+                            Dr. Kennedy was the President and CEO of the Buck Institute for 
+                            Research on Aging and he maintained a professorship there through 
+                            2020. Dr. Kennedy has an adjunct appointment at the Department of 
+                            Biochemistry at the University of Washington, where he was a faculty 
+                            member from 2001 to 2010. In addition, Dr. Kennedy is also actively 
+                            involved with a number of Biotechnology companies. In addition, Dr. 
+                            Kennedy serves as a Co-Editor-In-Chief at Aging Cell. Finally, Dr. 
+                            Kennedy has a track record of interaction in China, where he was a 
+                            Visiting Professor at the Aging Research Institute at Guangdong 
+                            Medical College from 2009 to 2014. His PhD was performed in the 
+                            laboratory of Leonard Guarente at M.I.T., where he published the 
+                            first paper linking Sirtuins to aging.</p>
                         </div>
-                        <div class="caption">Rolling waves on rocky shores</div>
+                        <div class="caption">Brian Kennedy, Ph.D. Co-Founder</div>
                     </div>
 
                     <div class="carousel__item">
-                        <img src="images/Team5.png" alt="" style="background-color: white;">
+                        <img src="images/Team6.png" alt="Jan Gruber" 
+                        style="background: linear-gradient(to right, rgb(173, 114, 229) 50%, rgb(99, 203, 255) 100%);">
                         <div class="popup">
-                            <h3>Image 5</h3>
-                            <p>Suspendisse consequat arcu ut nisl volutpat gravida.</p>
+                            <h3></h3>
+                            <p>Dr. Jan Gruber currently holds joint appointments between Yale-NUS, 
+                                Division of Science and NUS Yong Loo Lin School of Medicine, 
+                                Department of Biochemistry. Dr. Gruber’s research interests 
+                                are in molecular mechanisms of aging including mitochondrial 
+                                dysfunction, somatic mutation accumulation and the role of 
+                                different forms of macromolecular damage as a hallmark of aging. 
+                                He has published over 60 research papers, several of which 
+                                have received special distinctions and honors. <br><br>
+                                Dr. Gruber received a Physics Vordiplom at Rheinisch-Westfälische 
+                                Technische Hochschule Aachen (RWTH) Germany in 1997, a Master of 
+                                Advanced Studies in Applied Mathematics and Theoretical Physics 
+                                from the University of Cambridge in 1999, as well as a Master of 
+                                Science (2000) and a DPhil in Biochemistry (2004) in the Laboratory 
+                                of Molecular Biophysics at the University of Oxford.</p>
                         </div>
-                        <div class="caption">Twilight over a mountain village</div>
+                        <div class="caption">Jan Gruber, Ph.D. Co-Founder</div>
                     </div>
 
-                    <div class="carousel__item">
-                        <img src="images/Team6.png" alt="" style="background-color: white;">
-                        <div class="popup">
-                            <h3>Image 5</h3>
-                            <p>Suspendisse consequat arcu ut nisl volutpat gravida.</p>
-                        </div>
-                        <div class="caption">Twilight over a mountain village</div>
-                    </div>
-
-                    <div class="carousel__item">
-                        <img src="images/Team7.png" alt="" style="background-color: white;">
-                        <div class="popup">
-                            <h3>Image 5</h3>
-                            <p>Suspendisse consequat arcu ut nisl volutpat gravida.</p>
-                        </div>
-                        <div class="caption">Twilight over a mountain village</div>
-                    </div>
-
-                    <div class="carousel__item">
-                        <img src="images/Team8.png" alt="" style="background-color: white;">
-                        <div class="popup">
-                            <h3>Image 5</h3>
-                            <p>Suspendisse consequat arcu ut nisl volutpat gravida.</p>
-                        </div>
-                        <div class="caption">Twilight over a mountain village</div>
-                    </div>
-
-                    <div class="carousel__item">
-                        <img src="images/Team9.png" alt="" style="background-color: white;">
-                        <div class="popup">
-                            <h3>Image 5</h3>
-                            <p>Suspendisse consequat arcu ut nisl volutpat gravida.</p>
-                        </div>
-                        <div class="caption">Twilight over a mountain village</div>
-                    </div>
-
-                    <div class="carousel__item">
-                        <img src="images/Team10.png" alt="" style="background-color: white;">
-                        <div class="popup">
-                            <h3>Image 5</h3>
-                            <p>Suspendisse consequat arcu ut nisl volutpat gravida.</p>
-                        </div>
-                        <div class="caption">Twilight over a mountain village</div>
-                    </div>
-
-                    <div class="carousel__item">
-                        <img src="images/Team11.png" alt="" style="background-color: white;">
-                        <div class="popup">
-                            <h3>Image 5</h3>
-                            <p>Suspendisse consequat arcu ut nisl volutpat gravida.</p>
-                        </div>
-                        <div class="caption">Twilight over a mountain village</div>
-                    </div>
                 </div>
 
                 <button id="prev">❮</button>
@@ -340,12 +362,109 @@
             </div>
         </div>
         </div>
+        </div>
+
+        <div class="section" id="science">
+        <div class="wave-container">
+            <canvas class="wave-canvas"></canvas>
+                <div class="wave-content">
+
+                    <div class="left">
+                        <h1>Research strategies & Pipelines</h1>
+                        <h2>Our three part strategy to identify gerotherapeutics 
+                            that extend healthy lifespan and delay age-related disease</h2>
+                    </div>
+                    
+                    <div class="right">
+                        <img src="images/Science1.png" alt="science1" style="width:475px">
+                    </div>
+                    
+
+                </div>
+        </div>
+        </div>
+
+        <div class="section" >
+        <div class="wave-container">
+            <canvas class="wave-canvas"></canvas>
+                <div class="wave-content">
+
+                    <h1>Preclinical drug discovery in C. elegans</h1>
+
+                    <div class="left">
+                        <h3>Normative Aging</h1>
+                        <p>Small molecules and natural products are tested for 
+                            improved survival and health in standard lab worm models.</p>
+                        <h3>Disease Mutants</h1>
+                        <p>Therapeutics are screened in age-associated and rare 
+                            disease mutants to identify FDA-regulated clinical applications.</p>
+                        <h3>Drug Synergy</h1>
+                        <p>Novel interventions are combined with known 
+                            lifespan-extending compounds to create breakthrough 
+                            healthy aging therapeutics.</p>
+                    </div>
+                
+                    <div class="right">
+                        <img src="images/Science2.png" alt="science2" style="width:525px; background-color: white;">
+                    </div>
+                </div>
+        </div>
+        </div>
+
+        <div class="section">
+        <div class="wave-container">
+            <canvas class="wave-canvas"></canvas>
+                <div class="wave-content">
+
+                    <div class="left">
+                        <h1>From Worms to Mammals to Clinical Trials</h1>
+                        <p>On the path to FDA regulatory approval, therapeutics identified 
+                            in worms are validated in cell culture and small mammal models 
+                            with the help of our academic partners. Based on the indication 
+                            and clinical endpoints pursued, clinical trials will be performed 
+                            in humans or in companion animals. We are paying close attention 
+                            to the Dog Aging Project TRIAD trial and will design our trials 
+                            based on insights from this study.</p>
+                    </div>
+
+                    <div class="right">
+                        <img src="images/Science4.png" alt="Science4" style="width:525px; background-color: white;">
+                    </div>
+
+                </div>
+        </div>
+        </div>
+
+        <div class="section" id="contact">
+        <div class="wave-container">
+            <canvas class="wave-canvas"></canvas>
+                <div class="wave-content">
+
+                    <h1>Contact Us</h1>
+                    <p>Please reach out if you are interested in joining our team 
+                        or are a potential customer, partner, collaborator, or 
+                        geroscience enthusiast! We look forward to hearing from you!</p>
+
+                    <form action="php/formhandler.php" method="post">
+                        <fieldset>
+                            <legend>Contact Information</legend>
+                            <label>Name</label>
+                            <input type="text" name="name" />
+                            <label>Email</label>
+                            <input type="email" name="email" />
+                            <label>Comments</label>
+                            <textarea name="comments"></textarea>
+                            <input type="submit" name="submit"
+                                value="Send it" />
+                        </fieldset>
+                    </form>
+                </div>
+        </div>
+        </div>
+
     </div>
 
-
-
-
-    <img id="OraLogo" src="images/OraLogo_Transparency.png" style="width:8%" alt="Ora Logo">
+    <img id="OraLogo" src="images/OraLogo_Transparency.png" style="width: 10%" alt="Ora Logo">
 
 
     <footer>
@@ -369,7 +488,7 @@
             </li>
         </ul>
 
-        <p>&copy; 2025 Ora Biomedical. All rights reserved. Web Design by <a href="https://github.com/florianaewing">Florian Ewing</a></p>
+        <p>&copy; 2026 Ora Biomedical. All rights reserved. Web Design by <a href="https://github.com/florianaewing">Florian Ewing</a></p>
     </footer>
 
     <script src="js/scripts.js"></script>

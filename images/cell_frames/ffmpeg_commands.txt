@@ -51,10 +51,13 @@ grade web background element that will render smoothly across modern browsers wh
 maintaining consistent dimensions and playback behavior.
 
 For video format in .mp4 at half speed:
-ffmpeg -f concat -safe 0 -i "C:/Users/flori/Documents/GitHub/OraBiomedical/images/cell_frames/filelist.txt" -vf "setpts=2.0*PTS" -c:v libx264 -pix_fmt yuv420p -an -y "C:/Users/flori/Documents/GitHub/OraBiomedical/images/cell_frames/output_half_speed.mp4"
+ffmpeg -f concat -safe 0 -i "C:/Users/flori/Documents/GitHub/OraBiomedical/images/cell_frames/filelist.txt" -vf "setpts=6.0*PTS" -c:v libx264 -pix_fmt yuv420p -an -y "C:/Users/flori/Documents/GitHub/OraBiomedical/images/cell_frames/smoothest_background_sixth_speed.mp4"
 
 For webM format with greater compression, & significantly reduced file size:
 ffmpeg -f concat -safe 0 -i "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\filelist.txt" -vf "fps=30,scale=1080:-1:force_original_aspect_ratio=decrease" -c:v libvpx-vp9 -b:v 0 -crf 35 -an -row-mt 1 -tile-columns 2 "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\cell_background.webm"
 
 For a compressed, web-compatible webp(Reduced size & frame rate):
-ffmpeg -f concat -safe 0 -i "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\filelist.txt" -vf "fps=24,scale=1080:1080:force_original_aspect_ratio=decrease,pad=1080:1080:(ow-iw)/2:(oh-ih)/2:color=black" -loop 0 -c:v libwebp -quality 50 -preset picture -an "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\cell_background_compressed.webp"
+ffmpeg -f concat -safe 0 -i "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\filelist.txt" -vf "fps=24,scale=1080:1080:force_original_aspect_ratio=decrease,pad=1080:1080:(ow-iw)/2:(oh-ih)/2:color=black" -loop 0 -c:v libwebp -quality 70 -preset picture -an "C:\Users\flori\Documents\GitHub\OraBiomedical\images\cell_frames\ultrasmooth_background.webp"
+
+For .gif to .webp conversion(for smoother playback and smaller filesize):
+ffmpeg -i "OraBiomedical\images\demo.gif" -vf "fps=24,scale=200:-1:flags=lanczos" -lossless 0 -quality 80 -compression_level 6 -loop 0 "loading.webp"

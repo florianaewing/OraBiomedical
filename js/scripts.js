@@ -181,7 +181,7 @@ function updateCarousel() {
       opacity = 1 - 0.3 * dist;
     }
 
-    // ✅ apply 3D first, center last for proper spacing
+    // 3D first, center last for proper spacing
     item.style.transform = `
       translateX(${x}px)
       translateZ(${z}px)
@@ -205,3 +205,65 @@ document.getElementById("prev").addEventListener("click", () => {
 
 // Initialize
 updateCarousel();
+
+//Captions for Home Page Intro
+document.addEventListener("DOMContentLoaded", () => {
+    const captionStartTimes = [0, 12, 25]; // seconds
+    const captions = [
+        "Ora Biomedical is Accelerating the Search for Longevity and Resilience",
+        "Enhancing Therapies Using High-Throughput Live Animal Screening and Machine Learning",
+        "Bridging Fundamental Science with Translational Breakthroughs"
+    ];
+
+    const captionElement = document.querySelector("main h3");
+
+    function showCaption(index) {
+        // fade out smoothly without affecting layout
+        captionElement.style.transition = "opacity 0.5s ease";
+        captionElement.style.opacity = 0;
+
+        setTimeout(() => {
+            captionElement.textContent = captions[index]; // update text
+            captionElement.style.opacity = 1; // fade in
+        }, 500); // match fade-out duration
+    }
+
+    captionStartTimes.forEach((startTime, index) => {
+        setTimeout(() => {
+            showCaption(index);
+        }, startTime * 1000);
+    });
+});
+
+// Set the loading screen to disappear after 3 seconds
+    window.addEventListener('load', function() {
+    setTimeout(function() {
+        // Fade out the preloader
+        document.getElementById('preloader').style.opacity = 0;
+
+        // After the fade-out transition, remove the preloader element
+        setTimeout(function() {
+            document.getElementById('preloader').style.display = 'none';
+        }, 1000); // Wait for the 1-second fade-out transition to finish
+    }, 3000); // 3000 milliseconds = 3 seconds
+});
+
+// Function to adjust font size based on screen width
+  function adjustFontSize() {
+      const h1 = document.querySelector('h1');
+      const h3 = document.querySelector('h3');
+
+      // Adjust the font sizes based on window width
+      if (window.innerWidth <= 480) {
+          h1.style.fontSize = "2em";  // For small screens (e.g., mobile phones)
+          h3.style.fontSize = "1.2em";  // For small screens
+      } else if (window.innerWidth <= 768) {
+          h1.style.fontSize = "1.2em";  // For tablets and smaller screens
+          h3.style.fontSize = "1.2em";  // For tablets and smaller screens
+      } else {
+          h1.style.fontSize = "3.5em";  // For larger screens (desktop)
+          h3.style.fontSize = "2em";  // For larger screens
+      }
+  }
+
+  
